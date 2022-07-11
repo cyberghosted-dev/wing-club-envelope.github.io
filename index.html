@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from wingo-club.com/ by HTTrack Website Copier/3.x [XR&CO'2017], Mon, 11 Jul 2022 12:20:09 GMT -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>WinGo</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+	<div class="main">
+		<div class="mainbox">
+			<div class="content">
+				<div class="btn">
+					<!--<a href="/"><img src="images/googleplay.png"></a>-->
+					<a href="../external.html?link=https://update.jiujiushaizi.com/down/WinGo_300.apk"><img src="images/download.png"></a>
+          <a href="game/index.html"><img src="images/online.png"></a>
+				</div>
+			</div>
+		</div>
+		<div class="tip18">
+			<img src="images/18.png">
+		</div>
+    <div class="nav">
+			<a href="../external.html?link=https://update.jiujiushaizi.com/Policy/aboutUs.html">About Us</a>
+			<a href="../external.html?link=https://update.jiujiushaizi.com/Policy/Policy.html">Privacy</a>
+			<a href="../external.html?link=https://update.jiujiushaizi.com/Policy/service.html">Copyright</a>
+			<a href="../external.html?link=https://update.jiujiushaizi.com/Policy/T&amp;C.html">T&C</a>
+		</div>
+		<div class="btmnav">
+			<ul>
+				<li>
+					<a href="#">
+						<img src="images/nav1.png" alt="">
+						<em>100% Safe Payments</em>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/nav2.png" alt="">
+						<em>VIP Customer Support</em>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/nav3.png" alt="">
+						<em>Instant Cash Withdrawal</em>
+					</a>
+				</li>
+			</ul>
+		</div>
+   <div class="btm">
+			<span class="btm_imgspan1"><img src="images/nav1.png" alt=""></span>
+			<span class="btm_txt">We use cookies to improve your experience on our website. By using this site you agree to our use of cookies. <a href="#">Learn more</a></span>
+			<span class="btn_agree"></span>
+			<span class="btm_imgspan3"></span>
+			<span class="btm_imgspan2"></span>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/rem.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/clipboard.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var data = getData();
+			setupCopy(data);
+			reportInfo(data);
+      $(".btn_agree").click(addCookie);
+		});
+
+		function getData() {
+			var str = window.location.search;
+			var pid = '';
+			if (str.indexOf('&') > 0) {
+				pid = str.substring(str.indexOf('=') + 1, str.indexOf('&'));
+			} else {
+				pid = str.substring(str.indexOf('=') + 1, str.length);
+			}
+			return pid;
+		}
+
+		var reportUrl = "../external.html?link=https://gs.jiujiuzjh.com:8083/referrer/share";
+		function reportInfo(data) {
+			$.get(reportUrl, { p: data }, function (data, status, xhr) { });
+		}
+
+		function setupCopy(data) {
+			var text = '{\"p\": ' + data + '}';
+			//console.log(text);
+			$('.content').find('a').attr("data-clipboard-action", "copy");
+			$('.content').find('a').attr("data-clipboard-text", text);
+
+			var clipboard = new ClipboardJS('a');
+			clipboard.on('success', function (e) {
+				console.log(e);
+				e.clearSelection();
+			});
+			clipboard.on('error', function (e) {
+				console.error('Trigger:', e.trigger);
+			});
+		}
+   
+   var cookieValue = document.cookie;
+        if (cookieValue.indexOf('AgreeCookies') === -1) {
+			$(".btm").show();
+		} else {
+			$(".btm").hide();
+		}
+
+        function addCookie() {
+            var user = "AgreeCookies";
+            setCookies("AgreeCookies", user, 30)
+		}
+
+        function setCookies(e, t, n) {
+            var r = new Date;
+            r.setTime(r.getTime() + 24 * n * 60 * 60 * 1e3);
+            var i = "expires=" + r.toGMTString();
+            document.cookie = e + "=" + t + "; " + i + ";path=/";
+            $(".btm").hide();
+        }
+	</script>
+</body>
+
+<!-- Mirrored from wingo-club.com/ by HTTrack Website Copier/3.x [XR&CO'2017], Mon, 11 Jul 2022 12:20:19 GMT -->
+</html>
+																																																																														
